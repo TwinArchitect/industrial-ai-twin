@@ -5,6 +5,6 @@ dist
 *.local
 server/node_modules
 server/dist
-public/hdri/*.hdr
+# public/hdri/*.hdr
 public/textures/**/*.jpg
 public/textures/**/*.png
