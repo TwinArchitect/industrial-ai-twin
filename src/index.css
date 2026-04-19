@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  body {
+    background: #0a0e1a;
+    color: #e2e8f0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 滚动条样式 */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0, 212, 255, 0.3); border-radius: 2px; }
+}
+
+@layer components {
+  /* 玻璃拟态面板 */
+  .glass-panel {
+    @apply backdrop-blur-glass bg-panel border border-border rounded-lg;
+  }
+
+  /* 霓虹文字效果 */
+  .neon-text {
+    color: #00d4ff;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+  }
+
+  /* 数据标签 */
+  .data-label {
+    @apply text-xs text-slate-400 uppercase tracking-widest;
+  }
+
+  /* 状态指示灯 */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+}
+
+/* AI 打字机光标动画 */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink { animation: blink 1s step-end infinite; }
+
+/* 扫描线动画（配合 Shader） */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}

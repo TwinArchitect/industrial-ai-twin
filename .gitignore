@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.DS_Store
+*.local
+server/node_modules
+server/dist
+public/hdri/*.hdr
+public/textures/**/*.jpg
+public/textures/**/*.png
