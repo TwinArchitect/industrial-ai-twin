@@ -22,6 +22,7 @@ export default function StatusLights() {
   const readyRef       = useRef(false)
   const lastMotorLevelRef = useRef<'normal' | 'warn' | 'critical'>('normal')
   const lastPumpWarnRef = useRef(false)
+  const pumpAlertCooldownRef = useRef(0) // 压力告警冷却，单位 ms
 
   // 使用 ref 级别的 Map 避免跨挂载污染（模块级 Map 在 StrictMode 下会残留旧值）
   const originalsRef = useRef(new Map<string, { emissiveColor: THREE.Color; emissiveIntensity: number }>())
@@ -144,16 +145,18 @@ export default function StatusLights() {
       lastMotorLevelRef.current = motorLevel
     }
 
+    const now = Date.now()
     const isPumpWarn = pressure > 5.2
-    if (isPumpWarn && !lastPumpWarnRef.current) {
+    if (isPumpWarn && !lastPumpWarnRef.current && now > pumpAlertCooldownRef.current) {
       pushAlert({
         id: crypto.randomUUID(),
         severity: 'warn',
         title: 'Pump Pressure Warning',
         detail: `Pressure reached ${pressure.toFixed(2)} bar (threshold 5.2 bar).`,
         zone: 'pump',
-        timestamp: Date.now(),
+        timestamp: now,
       })
+      pumpAlertCooldownRef.current = now + 30_000 // 30 秒内不重复
     }
     lastPumpWarnRef.current = isPumpWarn
   })

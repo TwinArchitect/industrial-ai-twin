@@ -3,7 +3,7 @@ import { subscribeWithSelector } from 'zustand/middleware'
 import type { AppState, SensorSnapshot, ChatEntry, AlertEntry } from '@/types'
 
 const HISTORY_MAX = 60 // 保留最近 60 帧传感器历史
-const ALERT_MAX = 6 // 屏幕最多保留 6 条告警
+const ALERT_MAX = 3 // 屏幕最多保留 3 条告警
 
 export const useStore = create<AppState>()(
   subscribeWithSelector((set) => ({
