@@ -13,8 +13,14 @@ app.use(express.json())
 const httpServer = createServer(app)
 const io = new Server(httpServer, {
   cors: {
-    origin: ['http://localhost:5173', 'https://*.vercel.app'],
+    origin: [
+      'http://localhost:5173',
+      'https://*.vercel.app',
+      'https://industrial-ai-twin.vercel.app',
+      'https://industrial-ai-twin-git-main-twinarchitect.vercel.app'
+    ],
     methods: ['GET', 'POST'],
+    credentials: true
   },
 })
 

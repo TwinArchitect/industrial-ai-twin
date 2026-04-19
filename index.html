@@ -4,17 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Industrial AI Twin | 3D Digital Twin Platform</title>
-    <meta name="description" content="AI-driven industrial digital twin platform with real-time monitoring and natural language control." />
-    <!-- 字体：优先 JetBrains Mono（本地已安装则生效），否则降级到系统等宽字体 -->
+    
+    <!-- Primary Meta Tags -->
+    <title>Industrial AI Twin | Next-Gen Equipment Digital Twin</title>
+    <meta name="title" content="Industrial AI Twin | Next-Gen Equipment Digital Twin">
+    <meta name="description" content="Real-time 3D visualization of industrial equipment with AI natural language control, anomaly detection, and predictive maintenance analytics." />
+    <meta name="keywords" content="digital twin, industrial IoT, 3D visualization, AI, predictive maintenance, centrifugal pump, real-time monitoring">
+    <meta name="author" content="TwinArchitect">
+    <meta name="theme-color" content="#0a0e1a">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://industrial-ai-twin.vercel.app">
+    <meta property="og:title" content="Industrial AI Twin | Next-Gen Equipment Digital Twin">
+    <meta property="og:description" content="Real-time 3D visualization of industrial equipment with AI natural language control and predictive maintenance.">
+    <meta property="og:image" content="https://industrial-ai-twin.vercel.app/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://industrial-ai-twin.vercel.app">
+    <meta property="twitter:title" content="Industrial AI Twin | Next-Gen Equipment Digital Twin">
+    <meta property="twitter:description" content="Real-time 3D visualization of industrial equipment with AI natural language control and predictive maintenance.">
+    <meta property="twitter:image" content="https://industrial-ai-twin.vercel.app/og-image.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { background: #0a0e1a; overflow: hidden; }
+      html { background: #0a0e1a; }
+      body { 
+        background: #0a0e1a; 
+        overflow: hidden; 
+        font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, monospace;
+      }
       #root { width: 100vw; height: 100vh; }
+      
+      /* Loading animation before React mounts */
+      .initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #0a0e1a;
+        z-index: 9999;
+      }
+      .initial-loader::before {
+        content: '';
+        width: 48px;
+        height: 48px;
+        border: 2px solid #1e293b;
+        border-top-color: #00d4ff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="initial-loader"></div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
