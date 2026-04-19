@@ -8,3 +8,5 @@ server/dist
 # public/hdri/*.hdr
 public/textures/**/*.jpg
 public/textures/**/*.png
+RESOURCES.md
+progress.md

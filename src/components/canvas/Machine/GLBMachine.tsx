@@ -109,6 +109,18 @@ export default function GLBMachine({ controlsRef }: GLBMachineProps) {
         mat.envMapIntensity = 0.7
         mat.needsUpdate = true
       })
+
+      // 叠加半透明蓝色线框，增强工业科技感
+      const edges = new THREE.EdgesGeometry(obj.geometry, 15)
+      const wireMat = new THREE.LineBasicMaterial({
+        color: 0x00c8ff,
+        transparent: true,
+        opacity: 0.18,
+        depthWrite: false,
+      })
+      const wireLines = new THREE.LineSegments(edges, wireMat)
+      wireLines.raycast = () => {} // 不参与射线拾取
+      obj.add(wireLines)
     })
 
     clipMaterialsRef.current = clipMats
