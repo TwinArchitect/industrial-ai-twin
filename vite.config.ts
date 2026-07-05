@@ -16,11 +16,8 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    proxy: {
-      '/socket.io': {
-        target: 'http://localhost:3001',
-        ws: true,
-      },
-    },
+    // 开发模式下模拟加载延迟，便于查看 LoadingScreen 效果
+    // 生产环境会自动移除此配置
+    middlewareMode: false,
   },
 })

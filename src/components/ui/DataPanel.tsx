@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import ReactECharts from 'echarts-for-react'
 import { useStore } from '@/store/useStore'
-import { useWebSocket } from '@/hooks/useWebSocket'
+import { useSensorSimulator } from '@/hooks/useSensorSimulator'
 import { ZONE_DISPLAY, type PartZone } from '@/core/PartZoning'
 
 /**
@@ -9,11 +9,11 @@ import { ZONE_DISPLAY, type PartZone } from '@/core/PartZoning'
  * 职责：右侧可滑出的设备数据抽屉
  * - 选中零件时自动展开
  * - 显示实时传感器曲线图（ECharts）
- * - WebSocket 实时推送数据
+ * - 前端模拟实时传感器数据
  */
 export default function DataPanel() {
-  // 启动 WebSocket 连接（在此组件挂载后建立，因为它是常驻组件）
-  useWebSocket()
+  // 启动前端传感器模拟器（在此组件挂载后建立，因为它是常驻组件）
+  useSensorSimulator()
 
   const selectedPartId = useStore((s) => s.selectedPartId)
   const setSelectedPart = useStore((s) => s.setSelectedPart)
