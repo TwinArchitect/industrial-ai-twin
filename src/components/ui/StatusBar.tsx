@@ -41,30 +41,30 @@ export default function StatusBar() {
 
   return (
     <motion.div
-      className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-3 glass-panel rounded-none border-x-0 border-t-0"
+      className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between gap-3 px-3 py-2 md:px-6 md:py-3 glass-panel rounded-none border-x-0 border-t-0"
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.3, type: 'spring', stiffness: 120 }}
     >
       {/* ── 左侧：标题 ── */}
-      <div className="flex items-center gap-4">
-        <div>
-          <div className="neon-text text-sm font-semibold tracking-wider">
+      <div className="flex min-w-0 items-center gap-3 md:gap-4">
+        <div className="min-w-0">
+          <div className="neon-text text-xs font-semibold tracking-wider md:text-sm">
             INDUSTRIAL AI TWIN
           </div>
-          <div className="text-slate-500 text-xs tracking-widest">
+          <div className="hidden text-slate-500 text-xs tracking-widest sm:block">
             Centrifugal Pump Assembly — Unit #CPA-042
           </div>
         </div>
         {/* 系统在线状态 */}
-        <div className="flex items-center gap-1.5 ml-4">
+        <div className="flex items-center gap-1.5 md:ml-4">
           <div className="status-dot bg-success animate-pulse" />
           <span className="text-success text-xs font-mono">ONLINE</span>
         </div>
       </div>
 
       {/* ── 中间：实时数据指标 ── */}
-      <div className="flex items-center gap-6">
+      <div className="hidden items-center gap-6 md:flex">
         <Metric label="TEMP" value={`${temp}°C`} warn={isOverheat} />
         <Metric label="PRESSURE" value={`${pressure} bar`} />
         <Metric label="RPM" value={rpm} />
@@ -72,7 +72,7 @@ export default function StatusBar() {
       </div>
 
       {/* ── 右侧：快捷操作 + Zone 选择器 ── */}
-      <div className="flex items-center gap-2">
+      <div className="hidden items-center gap-2 md:flex">
         <ActionBtn
           label={isExploded ? 'COLLAPSE' : 'EXPLODE'}
           active={isExploded}

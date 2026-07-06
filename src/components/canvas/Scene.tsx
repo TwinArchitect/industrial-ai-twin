@@ -21,7 +21,7 @@ export default function Scene() {
     <Canvas
       className="absolute inset-0"
       camera={{
-        position: [8, 6, 8],
+        position: [5.1, 3.2, 4.6],
         fov: 45,
         near: 0.1,
         far: 1000,
@@ -43,7 +43,7 @@ export default function Scene() {
         minDistance={2}
         maxDistance={30}
         maxPolarAngle={Math.PI / 2 + 0.1}
-        target={[0, 0, 0]}
+        target={[0, 0.72, 0]}
       />
 
       {/* 全局交互控制：快捷键 + reset 视角复位 */}

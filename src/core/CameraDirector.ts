@@ -14,8 +14,8 @@ import { gsap } from 'gsap'
 export const CAMERA_PRESETS = {
   /** 整体鸟瞰 */
   overview: {
-    position: new THREE.Vector3(8, 6, 8),
-    target: new THREE.Vector3(0, 0, 0),
+    position: new THREE.Vector3(5.1, 3.2, 4.6),
+    target: new THREE.Vector3(0, 0.72, 0),
   },
   /** 前视角 */
   front: {

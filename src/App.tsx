@@ -5,6 +5,7 @@ import StatusBar from '@/components/ui/StatusBar'
 import DataPanel from '@/components/ui/DataPanel'
 import AITerminal from '@/components/ui/AITerminal'
 import AlertToast from '@/components/ui/AlertToast'
+import IntroShowcase from '@/components/ui/IntroShowcase'
 
 // ── 简单 ErrorBoundary，防止 3D 场景崩溃时白屏 ───────────────────────────────
 class SceneErrorBoundary extends Component<
@@ -59,6 +60,7 @@ export default function App() {
         <>
           <StatusBar />
           <AlertToast />
+          <IntroShowcase />
           <DataPanel />
           <AITerminal />
         </>
